@@ -28,16 +28,19 @@ version = '2.0-SNAPSHOT'
 ext {
     dynamicExtensionsVersion = '2.0.1'
 
-    dynamicExtensionsAlfrescoVersion = "61"
-    alfrescoVersion = '6.1.2-ga'
-    shareVersion = "6.1.0"
+    dynamicExtensionsAlfrescoVersion = "62"
+    alfrescoVersion = '6.2.2'
+    shareVersion = "6.2.2"
 }
 
 repositories {
-    mavenCentral()
-    maven {
-        url "https://artifacts.alfresco.com/nexus/content/groups/public/"
-    }
+  mavenCentral()
+  maven {
+    url 'https://nexus.openshift.interaxo-dev.com/repository/alfresco-enterprise-all'
+  }
+  maven {
+    url 'https://nexus.openshift.interaxo-dev.com/repository/alfresco-thirdparty'
+  }
 }
 
 configurations {
@@ -61,7 +64,7 @@ dependencies {
     See https://github.com/xenit-eu/alfresco-docker-gradle-plugin for more information
     */
 
-    baseAlfrescoWar "org.alfresco:content-services-community:${alfrescoVersion}@war"
+    baseAlfrescoWar "org.alfresco:content-services:${alfrescoVersion}@war"
 
     // Include the Dynamic Extensions runtime AMP in Alfresco
     alfrescoAmp "eu.xenit:alfresco-dynamic-extensions-repo-${dynamicExtensionsAlfrescoVersion}:${dynamicExtensionsVersion}@amp"
